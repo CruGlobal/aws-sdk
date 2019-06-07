@@ -63,6 +63,51 @@
                             <artifactId>aws-java-sdk-osgi</artifactId>
                             <target>/apps/aws-sdk/install</target>
                         </embedded>
+                        <embedded>
+                            <groupId>software.amazon.ion</groupId>
+                            <artifactId>ion-java</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>com.fasterxml.jackson.dataformat</groupId>
+                            <artifactId>jackson-dataformat-cbor</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.netty</groupId>
+                            <artifactId>netty-codec-http</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.netty</groupId>
+                            <artifactId>netty-transport</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.netty</groupId>
+                            <artifactId>netty-resolver</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.netty</groupId>
+                            <artifactId>netty-handler</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.netty</groupId>
+                            <artifactId>netty-buffer</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.netty</groupId>
+                            <artifactId>netty-codec</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>io.netty</groupId>
+                            <artifactId>netty-common</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
                     </embeddeds>
                     <subPackages>
                         <subPackage>
@@ -99,10 +144,59 @@
     <!-- D E P E N D E N C I E S                                                -->
     <!-- ====================================================================== -->
     <dependencies>
+
         <dependency>
-            <groupId>Cru</groupId>
-            <artifactId>aws-sdk.core</artifactId>
-            <version>1.0</version>
+            <groupId>software.amazon.ion</groupId>
+            <artifactId>ion-java</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-cbor</artifactId>
+            <version>2.6.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http</artifactId>
+            <version>4.1.17.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-transport</artifactId>
+            <version>4.1.17.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-resolver</artifactId>
+            <version>4.1.17.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler</artifactId>
+            <version>4.1.17.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-buffer</artifactId>
+            <version>4.1.17.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec</artifactId>
+            <version>4.1.17.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-common</artifactId>
+            <version>4.1.17.Final</version>
         </dependency>
 
         <dependency>
