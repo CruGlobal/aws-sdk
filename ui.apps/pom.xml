@@ -59,8 +59,8 @@
                     <group>aws-sdk</group>
                     <embeddeds>
                         <embedded>
-                            <groupId>Cru</groupId>
-                            <artifactId>aws-sdk.core</artifactId>
+                            <groupId>com.amazonaws</groupId>
+                            <artifactId>aws-java-sdk-osgi</artifactId>
                             <target>/apps/aws-sdk/install</target>
                         </embedded>
                     </embeddeds>
@@ -103,6 +103,12 @@
             <groupId>Cru</groupId>
             <artifactId>aws-sdk.core</artifactId>
             <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-osgi</artifactId>
+            <version>1.11.534</version>
         </dependency>
 
         <dependency>
