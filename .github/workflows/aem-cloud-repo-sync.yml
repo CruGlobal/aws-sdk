@@ -1,0 +1,46 @@
+name: AEM Cloud Repository Sync
+
+env:
+  USER_EMAIL: lee.braddock@cru.org
+  USER_NAME: hlbraddock
+  CLOUD_REPOSITORY_NAME: aws-sdk
+
+on:
+  push:
+    branches: [ aem-cloud-repo-sync ]
+
+  pull_request:
+    branches: [ aem-cloud-repo-sync ]
+
+jobs:
+  # Running jobs directly on the runner machine
+  aem-cloud-repo-sync:
+    runs-on: ubuntu-latest
+
+    # Service containers to run with `runner-job`
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set git config
+        run: |
+            git config --global credential.helper cache
+            git config --global user.email ${USER_EMAIL}
+            git config --global user.name ${USER_NAME}
+
+      - name: sync repository
+        run: |
+            git remote remove origin
+            git remote add origin https://git.cloudmanager.adobe.com/cru/${CLOUD_REPOSITORY_NAME}
+            git push https://${{ secrets.AEM_CLOUD_GIT_REPOSITORY_USERNAME }}:${{ secrets.AEM_CLOUD_GIT_REPOSITORY_PASSWORD }}@git.cloudmanager.adobe.com/cru/${CLOUD_REPOSITORY_NAME} aem-cloud-repo-sync --force
+
+      - name: submodule update
+        run: |
+            git clone https://user:${{ secrets.AEM_CLOUD_REPO_PAT }}@github.com/CruGlobal/aem-cloud.git
+            cd aem-cloud
+            git fetch origin develop-test
+            git checkout develop-test
+            git submodule update --init --recursive
+            git submodule update --remote
+            git add .
+            git commit -m 'submodule update'
+            git push origin develop-test
