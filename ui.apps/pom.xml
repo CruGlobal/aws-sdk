@@ -49,7 +49,7 @@
                 <artifactId>filevault-package-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <group>jersey-bundle</group>
+                    <group>aws-sdk</group>
                     <embeddeds>
                         <embedded>
                             <groupId>org.cru</groupId>

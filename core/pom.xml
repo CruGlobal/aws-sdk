@@ -30,6 +30,8 @@
                         </Import-Package>
                         <Export-Package>
                             software.amazon.awssdk.cloudsearch.*,
+                            software.amazon.awssdk.cloudsearchdomain.*,
+                            software.amazon.awssdk.ssm.*,
                         </Export-Package>
                         <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
@@ -48,6 +50,15 @@
             <artifactId>cloudsearch</artifactId>
             <version>${aws.sdk.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>cloudsearchdomain</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>ssm</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
     </dependencies>
 </project>
