@@ -19,7 +19,7 @@ aws-java-sdk-osgi - 1.11.534
 
 ## Update version
 
-Under `ui.apps` edit pom.xml dependencies. 
+Under `ui.apps` edit pom.xml dependencies.
 
 ## How to build
 
@@ -27,7 +27,7 @@ To build all the modules run in the project root directory the following command
 
     mvn clean install
 
-If you have a running AEM instance you can build and package the whole project and deploy into AEM with  
+If you have a running AEM instance you can build and package the whole project and deploy into AEM with
 
     mvn clean install -PautoInstallPackage
 
