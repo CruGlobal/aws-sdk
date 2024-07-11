@@ -1,0 +1,15 @@
+name: Java CI with Maven Build AEM repository
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  aem-build:
+    uses: CruGlobal/.github/.github/workflows/aem-cloud-build.yml@v1
+    secrets:
+        aem-cloud-artifactory-user: ${{ secrets.AEM_CLOUD_ARTIFACTORY_USER }}
+        aem-cloud-artifactory-api-key: ${{ secrets.AEM_CLOUD_ARTIFACTORY_API_KEY }}
+
