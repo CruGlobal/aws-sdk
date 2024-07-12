@@ -21,7 +21,7 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>Cru</groupId>
+        <groupId>org.cru</groupId>
         <artifactId>aws-sdk</artifactId>
         <version>1.0</version>
         <relativePath>../pom.xml</relativePath>
@@ -58,54 +58,20 @@
                 <configuration>
                     <group>aws-sdk</group>
                     <embeddeds>
+                        <!-- AWS dependencies -->
                         <embedded>
-                            <groupId>com.amazonaws</groupId>
-                            <artifactId>aws-java-sdk-osgi</artifactId>
+                            <groupId>software.amazon.awssdk</groupId>
+                            <artifactId>cloudsearch</artifactId>
                             <target>/apps/aws-sdk/install</target>
                         </embedded>
                         <embedded>
-                            <groupId>software.amazon.ion</groupId>
-                            <artifactId>ion-java</artifactId>
+                            <groupId>software.amazon.awssdk</groupId>
+                            <artifactId>cloudsearchdomain</artifactId>
                             <target>/apps/aws-sdk/install</target>
                         </embedded>
                         <embedded>
-                            <groupId>com.fasterxml.jackson.dataformat</groupId>
-                            <artifactId>jackson-dataformat-cbor</artifactId>
-                            <target>/apps/aws-sdk/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>io.netty</groupId>
-                            <artifactId>netty-codec-http</artifactId>
-                            <target>/apps/aws-sdk/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>io.netty</groupId>
-                            <artifactId>netty-transport</artifactId>
-                            <target>/apps/aws-sdk/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>io.netty</groupId>
-                            <artifactId>netty-resolver</artifactId>
-                            <target>/apps/aws-sdk/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>io.netty</groupId>
-                            <artifactId>netty-handler</artifactId>
-                            <target>/apps/aws-sdk/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>io.netty</groupId>
-                            <artifactId>netty-buffer</artifactId>
-                            <target>/apps/aws-sdk/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>io.netty</groupId>
-                            <artifactId>netty-codec</artifactId>
-                            <target>/apps/aws-sdk/install</target>
-                        </embedded>
-                        <embedded>
-                            <groupId>io.netty</groupId>
-                            <artifactId>netty-common</artifactId>
+                            <groupId>software.amazon.awssdk</groupId>
+                            <artifactId>ssm</artifactId>
                             <target>/apps/aws-sdk/install</target>
                         </embedded>
                     </embeddeds>
@@ -120,7 +86,6 @@
                     <failOnError>true</failOnError>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>htl-maven-plugin</artifactId>
@@ -132,73 +97,29 @@
     <!-- D E P E N D E N C I E S                                                -->
     <!-- ====================================================================== -->
     <dependencies>
-
+        <!-- AWS dependencies -->
         <dependency>
-            <groupId>software.amazon.ion</groupId>
-            <artifactId>ion-java</artifactId>
-            <version>1.0.2</version>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>cloudsearch</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>cloudsearchdomain</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>ssm</artifactId>
+            <version>${aws.sdk.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-cbor</artifactId>
-            <version>2.6.7</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-codec-http</artifactId>
-            <version>4.1.17.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-transport</artifactId>
-            <version>4.1.17.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-resolver</artifactId>
-            <version>4.1.17.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-handler</artifactId>
-            <version>4.1.17.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-buffer</artifactId>
-            <version>4.1.17.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-codec</artifactId>
-            <version>4.1.17.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-common</artifactId>
-            <version>4.1.17.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk-osgi</artifactId>
-            <version>1.11.534</version>
-        </dependency>
-
+        <!-- AEM dependencies -->
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
             <classifier>apis</classifier>
         </dependency>
-
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.all</artifactId>
@@ -210,18 +131,14 @@
             <type>zip</type>
         </dependency>
         <dependency>
+            <groupId>com.day.cq.wcm</groupId>
+            <artifactId>cq-wcm-taglib</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>javax.jcr</groupId>
             <artifactId>jcr</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.day.cq.wcm</groupId>
-            <artifactId>cq-wcm-taglib</artifactId>
-        </dependency>
     </dependencies>
 </project>

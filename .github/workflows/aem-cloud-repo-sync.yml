@@ -1,0 +1,20 @@
+name: AEM Cloud Repository Sync
+
+on:
+  push:
+    branches: [ main, develop, aem-cloud-repo-sync ]
+
+jobs:
+  aem-cloud-repo-sync:
+    uses: CruGlobal/.github/.github/workflows/aem-cloud-repo-sync.yml@v1
+    with:
+        cloud-repository-name: aws-sdk
+        aem-cloud-branch-name: ${{ github.ref_name }}
+        user-name: "${GITHUB_ACTOR}"
+        user-email: "${GITHUB_ACTOR}@users.noreply.github.com"
+    secrets:
+        cloud-repository-username: ${{ secrets.AEM_CLOUD_GIT_REPOSITORY_USERNAME }}
+        cloud-repository-password: ${{ secrets.AEM_CLOUD_GIT_REPOSITORY_PASSWORD }}
+        aem-repository-github-api-token: ${{ secrets.AEM_GITHUB_API_TOKEN }}
+
+
