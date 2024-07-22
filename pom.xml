@@ -26,6 +26,7 @@
 
     <modules>
         <module>ui.apps</module>
+        <module>core</module>
     </modules>
 
     <properties>
