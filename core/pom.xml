@@ -52,9 +52,7 @@
                             <bnd><![CDATA[
         Import-Package: javax.annotation;version="[0.0,2)",\
                         *
-        Export-Package: software.amazon.awssdk.ssm;version=${aws.sdk.version},\
-                        software.amazon.awssdk.cloudsearch;version=${aws.sdk.version},\
-                        software.amazon.awssdk.cloudsearchdomain;version=${aws.sdk.version},\
+        Export-Package: software.amazon.awssdk.*;version=${aws.sdk.version},\
                         ]]></bnd>
                         </configuration>
                     </execution>
