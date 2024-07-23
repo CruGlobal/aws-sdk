@@ -70,6 +70,7 @@
                         <configuration>
                             <bnd><![CDATA[
         Import-Package: javax.annotation;version="[0.0,2)",\
+                        software.amazon.awssdk.*,\
                         *
         Export-Package: software.amazon.awssdk.*;version=${aws.sdk.version},\
                         ]]></bnd>
