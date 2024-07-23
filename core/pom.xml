@@ -72,7 +72,15 @@
         Import-Package: javax.annotation;version="[0.0,2)",\
                         software.amazon.awssdk.*,\
                         *
-        Export-Package: software.amazon.awssdk.*,\
+        Export-Package: software.amazon.awssdk.ssm;version=${aws.sdk.version},\
+                software.amazon.awssdk.cloudsearch;version=${aws.sdk.version},\
+                software.amazon.awssdk.auth.credentials;version=${aws.sdk.version},\
+                software.amazon.awssdk.core.client.builder;version=${aws.sdk.version},\
+                software.amazon.awssdk.services.cloudsearchdomain;version=${aws.sdk.version},\
+                software.amazon.awssdk.services.cloudsearchdomain.model;version=${aws.sdk.version},\
+                software.amazon.awssdk.core.sync;version=${aws.sdk.version},\
+                software.amazon.awssdk.regions;version=${aws.sdk.version},\
+                software.amazon.awssdk.awscore.client.builder;version=${aws.sdk.version},\
                         ]]></bnd>
                         </configuration>
                     </execution>
