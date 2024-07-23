@@ -45,7 +45,7 @@
         </dependency>
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>aws-core</artifactId>
             <version>${aws.sdk.version}</version>
         </dependency>
         <dependency>

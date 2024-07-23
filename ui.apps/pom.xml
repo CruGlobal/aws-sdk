@@ -83,7 +83,7 @@
                         </embedded>
                         <embedded>
                             <groupId>software.amazon.awssdk</groupId>
-                            <artifactId>core</artifactId>
+                            <artifactId>aws-core</artifactId>
                             <target>/apps/aws-sdk/install</target>
                         </embedded>
                         <embedded>
