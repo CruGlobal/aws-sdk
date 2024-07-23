@@ -74,6 +74,24 @@
                             <artifactId>ssm</artifactId>
                             <target>/apps/aws-sdk/install</target>
                         </embedded>
+
+
+                        <embedded>
+                            <groupId>software.amazon.awssdk</groupId>
+                            <artifactId>auth</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>software.amazon.awssdk</groupId>
+                            <artifactId>core</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>software.amazon.awssdk</groupId>
+                            <artifactId>regions</artifactId>
+                            <target>/apps/aws-sdk/install</target>
+                        </embedded>
+
                     </embeddeds>
                 </configuration>
             </plugin>
