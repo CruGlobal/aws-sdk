@@ -9,7 +9,7 @@
         <version>1.0</version>
     </parent>
 
-    <groupId>org.example</groupId>
+    <groupId>aws-sdk</groupId>
     <artifactId>core</artifactId>
 
     <properties>
@@ -35,6 +35,22 @@
             <artifactId>ssm</artifactId>
             <version>${aws.sdk.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>auth</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>aws-core</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>regions</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -42,6 +58,7 @@
             <plugin>
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-maven-plugin</artifactId>
+                <version>${bnd.version}</version>
                 <executions>
                     <execution>
                         <id>bnd-process</id>
@@ -51,8 +68,17 @@
                         <configuration>
                             <bnd><![CDATA[
         Import-Package: javax.annotation;version="[0.0,2)",\
+                        software.amazon.awssdk.*;
                         *
-        Export-Package: software.amazon.awssdk.*;version=${aws.sdk.version},\
+        Export-Package: software.amazon.awssdk.ssm;version=${aws.sdk.version},\
+                        software.amazon.awssdk.cloudsearch;version=${aws.sdk.version},\
+                        software.amazon.awssdk.auth.credentials;version=${aws.sdk.version},\
+                        software.amazon.awssdk.core.client.builder;version=${aws.sdk.version},\
+                        software.amazon.awssdk.services.cloudsearchdomain;version=${aws.sdk.version},\
+                        software.amazon.awssdk.services.cloudsearchdomain.model;version=${aws.sdk.version},\
+                        software.amazon.awssdk.core.sync;version=${aws.sdk.version},\
+                        software.amazon.awssdk.regions;version=${aws.sdk.version},\
+                        software.amazon.awssdk.awscore.client.builder;version=${aws.sdk.version},\
                         ]]></bnd>
                         </configuration>
                     </execution>

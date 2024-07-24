@@ -45,6 +45,7 @@
 
         <aws.sdk.version>2.26.7</aws.sdk.version>
         <aem.sdk.api.version>2024.6.16971.20240628T122619Z-240600</aem.sdk.api.version>
+        <bnd.version>5.1.2</bnd.version>
     </properties>
 
     <build>
