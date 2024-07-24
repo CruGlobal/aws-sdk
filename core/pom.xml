@@ -6,11 +6,12 @@
     <parent>
         <groupId>org.cru</groupId>
         <artifactId>aws-sdk</artifactId>
-        <version>1.0</version>
+        <version>3.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>aws-sdk</groupId>
-    <artifactId>core</artifactId>
+    <artifactId>aws-sdk.core</artifactId>
+    <name>Cru - aws-sdk</name>
+    <description>AWS SDK bundle for Cru - wraps AWS SDK in an OSGI bundle.</description>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -67,9 +68,7 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-        Import-Package: javax.annotation;version="[0.0,2)",\
-                        software.amazon.awssdk.*,\
-                        *
+        Import-Package: !*
         Export-Package: software.amazon.awssdk.ssm;version=${aws.sdk.version},\
                         software.amazon.awssdk.cloudsearch;version=${aws.sdk.version},\
                         software.amazon.awssdk.auth.credentials;version=${aws.sdk.version},\
@@ -81,6 +80,21 @@
                         software.amazon.awssdk.awscore.client.builder;version=${aws.sdk.version},\
                         ]]></bnd>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-baseline-maven-plugin</artifactId>
+                <configuration>
+                    <failOnMissing>false</failOnMissing>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>baseline</id>
+                        <goals>
+                            <goal>baseline</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>

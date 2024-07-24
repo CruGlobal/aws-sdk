@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.cru</groupId>
         <artifactId>aws-sdk</artifactId>
-        <version>1.0</version>
+        <version>3.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -130,25 +130,10 @@
 <!--            <version>${aws.sdk.version}</version>-->
 <!--        </dependency>-->
 
-        <!-- AEM dependencies -->
         <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.all</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.examples</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.day.cq.wcm</groupId>
-            <artifactId>cq-wcm-taglib</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.jcr</groupId>
-            <artifactId>jcr</artifactId>
+            <groupId>org.cru</groupId>
+            <artifactId>aws-sdk.core</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
