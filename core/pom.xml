@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>aws-sdk.core</artifactId>
-    <name>Cru - aws-sdk</name>
+    <name>aws-sdk - Core</name>
     <description>AWS SDK bundle for Cru - wraps AWS SDK in an OSGI bundle.</description>
 
     <dependencies>
