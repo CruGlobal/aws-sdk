@@ -55,6 +55,23 @@
                 <artifactId>sling-maven-plugin</artifactId>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependency</id>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeArtifactIds>
+                                ssm,cloudsearch,cloudsearchdomain,auth,aws-core,regions
+                            </includeArtifactIds>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-maven-plugin</artifactId>
                 <version>${bnd.version}</version>
@@ -69,6 +86,19 @@
     Import-Package: javax.annotation;version="[0.0,2)",\
                     !*
     Export-Package: software.amazon.awssdk.*;version="${aws.sdk.version}"
+    Include-Resource: target/dependency/ssm-${aws.sdk.version}.jar,\
+                      target/dependency/cloudsearch-${aws.sdk.version}.jar,\
+                      target/dependency/cloudsearchdomain-${aws.sdk.version}.jar,\
+                      target/dependency/auth-${aws.sdk.version}.jar,\
+                      target/dependency/aws-core-${aws.sdk.version}.jar,\
+                      target/dependency/regions-${aws.sdk.version}.jar
+    Bundle-ClassPath: .,\
+                      ssm-${aws.sdk.version}.jar,\
+                      cloudsearch-${aws.sdk.version}.jar,\
+                      cloudsearchdomain-${aws.sdk.version}.jar,\
+                      auth-${aws.sdk.version}.jar,\
+                      aws-core-${aws.sdk.version}.jar,\
+                      regions-${aws.sdk.version}.jar
                         ]]></bnd>
                         </configuration>
                     </execution>
