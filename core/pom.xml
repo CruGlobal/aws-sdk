@@ -99,6 +99,14 @@
                       auth-${aws.sdk.version}.jar,\
                       aws-core-${aws.sdk.version}.jar,\
                       regions-${aws.sdk.version}.jar
+    Embed-Dependency: *;scope=compile|runtime
+    Embed-Transitive: true
+    Embedded-Artifacts: ssm-${aws.sdk.version}.jar,\
+                        cloudsearch-${aws.sdk.version}.jar,\
+                        cloudsearchdomain-${aws.sdk.version}.jar,\
+                        auth-${aws.sdk.version}.jar,\
+                        aws-core-${aws.sdk.version}.jar,\
+                        regions-${aws.sdk.version}.jar
                         ]]></bnd>
                         </configuration>
                     </execution>
