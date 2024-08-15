@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.cru</groupId>
@@ -14,74 +11,112 @@
     <name>aws-sdk - Core</name>
     <description>AWS SDK bundle for Cru - wraps AWS SDK in an OSGI bundle.</description>
 
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <dependencies>
-        <!-- AWS dependencies -->
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>cloudsearch</artifactId>
-            <version>${aws.sdk.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>cloudsearchdomain</artifactId>
-            <version>${aws.sdk.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>ssm</artifactId>
-            <version>${aws.sdk.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>auth</artifactId>
-            <version>${aws.sdk.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>aws-core</artifactId>
-            <version>${aws.sdk.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>regions</artifactId>
-            <version>${aws.sdk.version}</version>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
+<!--            Sling Maven Plugin-->
             <plugin>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>sling-maven-plugin</artifactId>
             </plugin>
+
+<!--            Maven Dependency Plugin-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
                 <executions>
                     <execution>
-                        <id>copy-dependency</id>
+                        <id>unpack</id>
+                        <phase>validate</phase>
                         <goals>
-                            <goal>copy-dependencies</goal>
+                            <goal>unpack</goal>
                         </goals>
                         <configuration>
-                            <includeArtifactIds>
-                                ssm,cloudsearch,cloudsearchdomain,auth,aws-core,regions
-                            </includeArtifactIds>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>cloudsearch</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>cloudsearchdomain</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>ssm</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>auth</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>aws-core</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>regions</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>http-client-spi</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>sdk-core</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>software.amazon.eventstream</groupId>
+                                    <artifactId>eventstream</artifactId>
+                                    <version>1.0.1</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                            <overWriteReleases>true</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
+<!--            Bnd Maven Plugin-->
             <plugin>
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-maven-plugin</artifactId>
-                <version>${bnd.version}</version>
                 <executions>
                     <execution>
                         <id>bnd-process</id>
@@ -90,35 +125,18 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-    Import-Package: javax.annotation;version="[0.0,2)",\
-                    !*
-    Export-Package: software.amazon.awssdk.*;version="${aws.sdk.version}"
-    Include-Resource: target/dependency/ssm-${aws.sdk.version}.jar,\
-                      target/dependency/cloudsearch-${aws.sdk.version}.jar,\
-                      target/dependency/cloudsearchdomain-${aws.sdk.version}.jar,\
-                      target/dependency/auth-${aws.sdk.version}.jar,\
-                      target/dependency/aws-core-${aws.sdk.version}.jar,\
-                      target/dependency/regions-${aws.sdk.version}.jar
-    Bundle-ClassPath: .,\
-                      ssm-${aws.sdk.version}.jar,\
-                      cloudsearch-${aws.sdk.version}.jar,\
-                      cloudsearchdomain-${aws.sdk.version}.jar,\
-                      auth-${aws.sdk.version}.jar,\
-                      aws-core-${aws.sdk.version}.jar,\
-                      regions-${aws.sdk.version}.jar
-    Embed-Dependency: *;scope=compile|runtime
-    Embed-Transitive: true
-    Embedded-Artifacts: ssm-${aws.sdk.version}.jar,\
-                        cloudsearch-${aws.sdk.version}.jar,\
-                        cloudsearchdomain-${aws.sdk.version}.jar,\
-                        auth-${aws.sdk.version}.jar,\
-                        aws-core-${aws.sdk.version}.jar,\
-                        regions-${aws.sdk.version}.jar
-                        ]]></bnd>
+Bundle-Name: awssdk - Core
+Bundle-SymbolicName: awssdk.core
+Bundle-Description: OSGI version of jar ${project.name}
+Export-Package: software.*;version=${aws.sdk.version},META-INF.services.*
+Import-Package: !*
+                            ]]></bnd>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
+<!--            Bnd Baseline Maven Plugin-->
             <plugin>
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-baseline-maven-plugin</artifactId>
@@ -134,12 +152,8 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Maven Surefire Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
-            <!-- Maven Jar Plugin -->
+
+<!--            Maven Jar Plugin-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
