@@ -127,9 +127,10 @@
                             <bnd><![CDATA[
 Bundle-Name: awssdk - Core
 Bundle-SymbolicName: awssdk.core
-Bundle-Description: OSGI version of jar ${project.name}
-Export-Package: software.*;version=${aws.sdk.version},META-INF.services.*
-Import-Package: !*
+Bundle-Description: OSGI version of aws sdk jars
+Export-Package: software.*,META-INF.services.*
+Import-Package: javax.annotation;version="[0.0,2)",\
+                !*
                             ]]></bnd>
                         </configuration>
                     </execution>
