@@ -98,6 +98,22 @@
                                     <outputDirectory>${project.build.directory}/classes</outputDirectory>
                                 </artifactItem>
                                 <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>identity-spi</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>software.amazon.awssdk</groupId>
+                                    <artifactId>utils</artifactId>
+                                    <version>${aws.sdk.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
                                     <groupId>software.amazon.eventstream</groupId>
                                     <artifactId>eventstream</artifactId>
                                     <version>1.0.1</version>
