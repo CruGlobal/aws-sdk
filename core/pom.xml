@@ -173,6 +173,7 @@ Bundle-ClassPath: .,\
                 ssm-${aws.sdk.version}.jar,\
                 cloudsearch-${aws.sdk.version}.jar,\
                 cloudsearchdomainauth-${aws.sdk.version}.jar,\
+                auth-${aws.sdk.version}.jar,\
                 aws-core-${aws.sdk.version}.jar,\
                 regions-${aws.sdk.version}.jar,\
                 http-client-spi-${aws.sdk.version}.jar,\
