@@ -18,7 +18,6 @@
                 <groupId>org.apache.sling</groupId>
                 <artifactId>sling-maven-plugin</artifactId>
             </plugin>
-
 <!--            Maven Dependency Plugin-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -116,7 +115,7 @@
                                 <artifactItem>
                                     <groupId>software.amazon.eventstream</groupId>
                                     <artifactId>eventstream</artifactId>
-                                    <version>1.0.1</version>
+                                    <version>${eventstream.version}</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/classes</outputDirectory>
@@ -124,6 +123,18 @@
                             </artifactItems>
                             <overWriteReleases>true</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-dependency</id>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeArtifactIds>
+                                ssm,cloudsearch,cloudsearchdomain,auth,aws-core,regions,http-client-spi,sdk-core,
+                                identity-spi,utils,eventstream
+                            </includeArtifactIds>
                         </configuration>
                     </execution>
                 </executions>
@@ -147,6 +158,28 @@ Bundle-Description: OSGI version of aws sdk jars
 Export-Package: software.*,META-INF.services.*
 Import-Package: javax.annotation;version="[0.0,2)",\
                 !*
+Include-Resource: target/dependency/ssm-${aws.sdk.version}.jar,\
+                  target/dependency/cloudsearch-${aws.sdk.version}.jar,\
+                  target/dependency/cloudsearchdomain-${aws.sdk.version}.jar,\
+                  target/dependency/auth-${aws.sdk.version}.jar,\
+                  target/dependency/aws-core-${aws.sdk.version}.jar,\
+                  target/dependency/regions-${aws.sdk.version}.jar,\
+                  target/dependency/http-client-spi-${aws.sdk.version}.jar,\
+                  target/dependency/sdk-core-${aws.sdk.version}.jar,\
+                  target/dependency/identity-spi-${aws.sdk.version}.jar,\
+                  target/dependency/utils-${aws.sdk.version}.jar,\
+                  target/dependency/eventstream-${eventstream.version}.jar
+Bundle-ClassPath: .,\
+                ssm-${aws.sdk.version}.jar,\
+                cloudsearch-${aws.sdk.version}.jar,\
+                cloudsearchdomainauth-${aws.sdk.version}.jar,\
+                aws-core-${aws.sdk.version}.jar,\
+                regions-${aws.sdk.version}.jar,\
+                http-client-spi-${aws.sdk.version}.jar,\
+                sdk-core-${aws.sdk.version}.jar,\
+                identity-spi-${aws.sdk.version}.jar,\
+                utils-${aws.sdk.version}.jar,\
+                eventstream-${eventstream.version}.jar
                             ]]></bnd>
                         </configuration>
                     </execution>
@@ -182,4 +215,51 @@ Import-Package: javax.annotation;version="[0.0,2)",\
             </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>cloudsearch</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>cloudsearchdomain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>ssm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>auth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>aws-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>regions</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>http-client-spi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>sdk-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>identity-spi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>utils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.eventstream</groupId>
+            <artifactId>eventstream</artifactId>
+        </dependency>
+    </dependencies>
 </project>
