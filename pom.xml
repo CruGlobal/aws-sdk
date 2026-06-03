@@ -41,7 +41,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <aws.sdk.version>2.26.7</aws.sdk.version>
+        <aws.sdk.version>2.46.0</aws.sdk.version>
         <eventstream.version>1.0.1</eventstream.version>
         <aem.sdk.api.version>2024.6.16971.20240628T122619Z-240600</aem.sdk.api.version>
         <bnd.version>5.1.2</bnd.version>
